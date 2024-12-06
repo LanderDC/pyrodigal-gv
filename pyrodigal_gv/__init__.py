@@ -1,7 +1,7 @@
 """A Pyrodigal extension for improved prediction of viral genes.
 """
 
-__version__ = "0.3.2"
+__version__ = "0.3.3"
 __author__ = "Martin Larralde <martin.larralde@embl.de>"
 __license__ = "GPLv3"
 
@@ -25,7 +25,9 @@ class ViralGeneFinder(pyrodigal.GeneFinder):
         *,
         meta: bool = False,
         metagenomic_bins: typing.Optional[pyrodigal.MetagenomicBins] = None,
-        closed: bool = False,
+        closed=[False, False],
+        closed_start=None,
+        closed_stop=None,
         mask: bool = False,
         min_mask: int = 50,
         min_gene: int = 90,
@@ -73,6 +75,7 @@ class ViralGeneFinder(pyrodigal.GeneFinder):
                 *Mostly useful for testing*.
 
         """
+
         if metagenomic_bins is None:
             metagenomic_bins = (
                 METAGENOMIC_BINS_VIRAL if viral_only else METAGENOMIC_BINS
@@ -82,6 +85,8 @@ class ViralGeneFinder(pyrodigal.GeneFinder):
             meta=meta,
             metagenomic_bins=metagenomic_bins,
             closed=closed,
+            closed_start=closed_start,
+            closed_stop=closed_stop,
             mask=mask,
             min_mask=min_mask,
             min_gene=min_gene,
