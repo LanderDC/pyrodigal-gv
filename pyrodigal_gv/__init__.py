@@ -1,7 +1,7 @@
 """A Pyrodigal extension for improved prediction of viral genes.
 """
 
-__version__ = "0.3.3"
+__version__ = "0.4.0"
 __author__ = "Martin Larralde <martin.larralde@embl.de>"
 __license__ = "GPLv3"
 
